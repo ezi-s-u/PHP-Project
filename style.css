@@ -39,8 +39,35 @@ nav.menu ul li a {
 }
 
 main {
+  background-color: #f5f5f5;
+  text-align: center;
   padding: 20px;
 }
+
+main > h2 {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.imgs {
+  align-items: center;
+}
+
+.imgs > img {
+  margin-bottom: 20px;
+}
+
+.imgs > span {
+  font-weight: bold;
+  font-size: 17px;
+}
+
 
 footer {
   background-color: #f5f5f5;
