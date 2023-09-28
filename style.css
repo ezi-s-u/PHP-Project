@@ -1,76 +1,208 @@
-/* 스타일시트 예시 (style.css) */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Noto Sans KR;
 }
 
 header {
-  height: 97px;
-  background-color: #9C9C9B;
+  width: 100%;
+  height: min-content;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 0px;
+  position: fixed;
 }
 
-.links {
-  text-align: center;
-  padding: 0px;
-}
-
+/* Updated CSS for the navigation bar */
 nav.menu {
-  background-color: rgb(255, 255, 255);
-  color: rgb(255, 255, 255);
-  text-align: center;
+  width: 100%;
+  background-color: #ffffff; /* Light gray background color */
+  color: #222222; /* Dark text color */
+  padding: 10px 0; /* Adjust padding */
+  display: flex; /* Use flex layout */
+  align-items: center;
+  justify-content: center;
+}
+
+img.icon {
+  margin-left: 10px;
+  height: 70px;
+  margin-right: 300px; /* Add some spacing between the icon and menu items */
 }
 
 nav.menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  text-align: center;
 }
 
 nav.menu ul li {
-  display: inline-block;
-  margin: 20px 60px;
+  margin: 0 40px; /* Adjust spacing */
 }
 
 nav.menu ul li a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: #222222; /* Dark text color */
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav.menu ul li a:hover {
+  color: #FF4E50; /* Red text color on hover */
+}
+
+img.cart {
+  margin-left: 300px;
 }
 
 main {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
+  padding: 100px;
+}
+
+#slideShow{
+  width: 1600px;
+  height: 600px;
+  position: relative;
+  margin: 50px auto;
+  overflow: hidden;   
+  /*리스트 형식으로 이미지를 일렬로 
+  정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
+  hidden으로 숨겨줘야됨*/
+}
+
+
+.slides{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2500px; /* 슬라이드할 사진과 마진 총 넓이 */
+  transition: left 0.5s ease-out; 
+  /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
+}
+
+/* 첫 번째 슬라이드 가운데에 정렬하기위해
+첫번째 슬라이드만 margin-left조정 */
+.slides li:first-child{
+  margin-left: 100px;
+}
+
+/* 슬라이드들 옆으로 정렬 */
+.slides li:not(:last-child){
+  float: left;
+  margin-right: 100px;
+}
+
+.slides li{
+  float: left;
+}
+
+.controller span{
+  position:absolute;
+  background-color: transparent;
+  color: black;
   text-align: center;
-  padding: 20px;
+  border-radius: 50%;
+  padding: 10px 20px;
+  top: 50%;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+/* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
+.controller span:hover{
+  background-color: rgba(128, 128, 128, 0.11);
+}
+
+.prev{
+  left: 10px;
+}
+
+/* 이전 화살표에 마우스 커서가 올라가 있을때 
+이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
+.prev:hover{
+  transform: translateX(-10px);
+}
+
+.next{
+  right: 10px;
+}
+
+/* 다음 화살표에 마우스 커서가 올라가 있을때 
+이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
+.next:hover{
+  transform: translateX(10px);
 }
 
 main > h2 {
+  font-size: 35px;
+  text-align: center;
+  font-family: "Noto Sans KR";
   margin-top: 60px;
   margin-bottom: 40px;
 }
 
 .items {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4개의 열로 나눔 */
+  gap: 30px;
 }
 
-.imgs {
-  align-items: center;
+.description {
+  align-items: left;
 }
 
-.imgs > img {
-  margin-bottom: 20px;
+.item > img {
+  width: 295px;
+  height: 295px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-.imgs > span {
+.description > .explan {
+  font-size: 12px;
+}
+
+.description > span {
+  width: 290px;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 16px;
+}
+
+.summary {
+  color: #898989;
+  font-size: 12px;
+  margin: 5px 0px 5px 0px;
+}
+
+.description {
+  margin-left: 12px;
 }
 
 
 footer {
-  background-color: #f5f5f5;
-  padding: 20px;
-  text-align: center;
+  border-top: #e3e3e3 solid 1px;
+  padding: 40px 0 70px 50px;
+}
+
+img.icon_footer {
+  margin-left: 10px;
+  width: 90px;
+  height: 40px;
+  margin-right: 300px; /* Add some spacing between the icon and menu items */
+}
+
+.content_left {
+  text-align: left;
+}
+
+.content_left > p {
+  font-size: 12px;
+}
+
+.content_right {
+  text-align: right;
 }
