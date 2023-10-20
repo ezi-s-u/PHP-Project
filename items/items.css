@@ -1,0 +1,123 @@
+main {
+  padding: 100px 200px 0px 200px;
+}
+
+.payment {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+.payment > img {
+  width: 600px;
+  height: 600px;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 80px;
+}
+
+.explan {
+  width: 100%;
+}
+
+.payment > .explan {
+  text-align: left;
+}
+
+.explan > h2 {
+  margin-top: 50px;
+}
+
+.explan > .price {
+  font-size: 25px;
+}
+
+.explan > .summary {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.explain > hr {
+  color: rgb(204, 204, 204);
+}
+
+td {
+  padding-right: 20px;
+}
+
+.count {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(163, 163, 163);
+}
+
+.count > div {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.count > .countBtn {
+  background-color: rgb(255, 255, 255);
+  border: 0px;
+  font-size: 15px;
+  padding: 0px 12px 0px 12px;
+}
+
+.count > .countBtn:hover {
+  cursor: pointer;
+}
+
+.deliver {
+  font-size: 14px;
+  margin-bottom: 20px;
+  float: left;
+}
+
+.amount {
+  display: inline-block;
+  font-size: 30px;
+}
+
+.totalPrice {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_basket {
+  width: 50%;
+  margin-right: 2px;
+  padding: 15px 0px 15px 0px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(164, 164, 164);
+  border-radius: 5px;
+}
+
+.btn_basket:hover {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+}
+
+.btn_buy {
+  width: 50%;
+  margin-left: 2px;
+  padding: 15px 0px 15px 0px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(164, 164, 164);
+  border-radius: 5px;
+}
+
+.btn_buy:hover {
+  cursor: pointer;
+  background-color: rgb(92, 92, 92);
+}
