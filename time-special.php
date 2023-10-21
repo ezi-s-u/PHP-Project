@@ -12,12 +12,12 @@
 <body>
   <header>
     <nav class="menu">
-      <a href="index.html"><img class="icon" src="images/nanimall.png" alt="못난이몰"></a>
+    <a href="index.php"><img class="icon" src="images/nanimall.png" alt="못난이몰"></a>
       <ul>
-        <li><a href="seasonal.html">제철상품</a></li>
-        <li><a href="time-special.html">타임특가</a></li>
-        <li><a href="new-items.html">신규상품</a></li>
-        <li><a href="all-items.html">전체상품</a></li>
+        <li><a href="seasonal.php">제철상품</a></li>
+        <li><a href="time-special.php">타임특가</a></li>
+        <li><a href="new-items.php">신규상품</a></li>
+        <li><a href="all-items.php">전체상품</a></li>
       </ul>
       <a href="login.html"><img src="images/login.png" class="login"></img></a>
       <a href="basket.html"><img src="images/cart.png" class="cart"></img></a>
@@ -27,24 +27,18 @@
   <main>
     <h2>타임특가</h2>
     <div class="items">
-      <div class="item">
-        <a href="items/제주-농원-고당도-한라봉-2.5kg.html"><img src="//mnnmall.com/web/product/big/202301/e02a73e8783b3d026f46b3dd2d8a9bb0.jpg">
-        <div class="description">
-          <span>제주 농원 고당도 한라봉 2.5kg</span></a>
-          <br><div class="summary">제주 농원에서 자연과 함께 자란 고당도 한라봉</div>
-          <span class="price">23,800원</span>
-        </div>
-      </div>
-      <div class="item">
-        <a href="items/수제청-스틱과일청-5종-10종-선물세트-홈카페-답례품.html"><img src="//mnnmall.com/web/product/medium/202301/1f1e953132cd62bb616cca7cb40711ef.jpg">
-        <div class="description">
-          <span>수제청 스틱과일청 5종 10종 선물세트 홈카페 답례품</span></a>
-          <br><div class="summary">집에서도 카페 음료를 즐길 수 있는 홈카페 세트</div>
-          <span class="price">18,000원</span>
-        </div>
-      </div>
-      
-    </div>
+      <?php include('db_connect.php');
+  
+      $sql = "select * from nanimall";
+      $data = mysqli_query($conn, $sql);
+      $cnt = mysqli_num_rows($data);
+  
+      for($i = 5; $i < $cnt; $i++){
+        $arr = mysqli_fetch_array($data);
+        echo "<div class='item'><a href='items/".$arr['item_src']."'><img src='".$arr['item_img']."'>";
+        echo "<div class='description'><span>".$arr['item_name']."</span></a><br><div class='summary'>".$arr['item_description']."</div><span class='price'>".$arr['item_price']."</span></div></div>";
+      }
+      ?>
   </main>
   <footer>
     <div class="content_left">

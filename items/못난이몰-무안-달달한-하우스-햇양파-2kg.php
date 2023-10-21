@@ -13,25 +13,34 @@
 <body>
   <header>
     <nav class="menu">
-      <a href="../index.html"><img class="icon" src="../images/nanimall.png" alt="못난이몰"></a>
+    <a href="index.php"><img class="icon" src="../images/nanimall.png" alt="못난이몰"></a>
       <ul>
-        <li><a href="../seasonal.html">제철상품</a></li>
-        <li><a href="../time-special.html">타임특가</a></li>
-        <li><a href="../new-items.html">신규상품</a></li>
-        <li><a href="../all-items.html">전체상품</a></li>
+        <li><a href="../seasonal.php">제철상품</a></li>
+        <li><a href="../time-special.php">타임특가</a></li>
+        <li><a href="../new-items.php">신규상품</a></li>
+        <li><a href="../all-items.php">전체상품</a></li>
       </ul>
-      <a href="login.html"><img src="../images/login.png" class="login"></img></a>
-      <a href="basket.html"><img src="../images/cart.png" class="cart"></img></a>
+      <a href="../login.html"><img src="../images/login.png" class="login"></img></a>
+      <a href="../basket.html"><img src="../images/cart.png" class="cart"></img></a>
     </nav>
   </header>
   
   <main>
     <div class="payment">
-      <img src="//mnnmall.com/web/product/medium/202303/22ca8afd3e214817b8fdde3c8e79a5e4.jpg">
+    <?php
+    include('../db_connect.php');
+
+    $sql = "select * from nanimall where item_name = '못난이몰 무안 달달한 하우스 햇양파 2kg'";
+    $data = mysqli_query($conn, $sql);
+    $cnt = mysqli_num_rows($data);
+
+    $arr = mysqli_fetch_array($data);
+    echo "<img src='".$arr['item_img']."'>";
+    ?> 
       <div class="explan">
-        <h2>못난이몰 무안 달달한 하우스 햇양파 2kg</h2>
-        <span class="price"><span id="price">6500</span> 원</span>
-        <div class="summary">건강 만점 국민 야채 햇양파</div>
+        <h2><?php echo $arr['item_name'];?></h2>
+        <span class="price"><span id="price"><?php echo $arr['item_price'];?></span> 원</span>
+        <div class="summary"><?php echo $arr['item_description'];?></div>
         <table class="deliver">
           <tr>
             <td>국내·해외배송</td>
@@ -55,7 +64,7 @@
         <hr><br>
         <div class="totalPrice">
           <div class="deliver" style="font-weight: bold;">총 상품금액</div>
-          <div class="amount"><span id="total">6500</span> 원</div>
+          <div class="amount"><span id="total"><?php echo $arr['item_price'];?></span> 원</div>
         </div>
         <div class="buttons">
           <button type="submit" class="btn_basket">장바구니</button>

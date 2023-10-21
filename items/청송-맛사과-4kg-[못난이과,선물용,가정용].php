@@ -7,31 +7,40 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="items.css">
   <link rel="icon" href="../images/icon.png">
-  <title>못난이몰 포항 제철 자숙 홍게 - 난이몰</title>
+  <title>청송 맛사과 4kg [못난이과,선물용,가정용] - 난이몰</title>
 </head>
 
 <body>
   <header>
     <nav class="menu">
-      <a href="../index.html"><img class="icon" src="../images/nanimall.png" alt="못난이몰"></a>
+    <a href="index.php"><img class="icon" src="../images/nanimall.png" alt="못난이몰"></a>
       <ul>
-        <li><a href="../seasonal.html">제철상품</a></li>
-        <li><a href="../time-special.html">타임특가</a></li>
-        <li><a href="../new-items.html">신규상품</a></li>
-        <li><a href="../all-items.html">전체상품</a></li>
+        <li><a href="../seasonal.php">제철상품</a></li>
+        <li><a href="../time-special.php">타임특가</a></li>
+        <li><a href="../new-items.php">신규상품</a></li>
+        <li><a href="../all-items.php">전체상품</a></li>
       </ul>
-      <a href="login.html"><img src="../images/login.png" class="login"></img></a>
-      <a href="basket.html"><img src="../images/cart.png" class="cart"></img></a>
+      <a href="../login.html"><img src="../images/login.png" class="login"></img></a>
+      <a href="../basket.html"><img src="../images/cart.png" class="cart"></img></a>
     </nav>
   </header>
   
   <main>
     <div class="payment">
-      <img src="//mnnmall.com/web/product/medium/202303/563505951c0e92a235a98d370e20f73f.jpg">
+    <?php
+    include('../db_connect.php');
+
+    $sql = "select * from nanimall where item_name = '청송 맛사과 4kg [못난이과,선물용,가정용]'";
+    $data = mysqli_query($conn, $sql);
+    $cnt = mysqli_num_rows($data);
+
+    $arr = mysqli_fetch_array($data);
+    echo "<img src='".$arr['item_img']."'>";
+    ?> 
       <div class="explan">
-        <h2>못난이몰 포항 제철 자숙 홍게</h2>
-        <span class="price"><span id="price">26000</span> 원</span>
-        <div class="summary">포항 앞 바다에서 잡은 신선한 홍게</div>
+        <h2><?php echo $arr['item_name'];?></h2>
+        <span class="price"><span id="price"><?php echo $arr['item_price'];?></span> 원</span>
+        <div class="summary"><?php echo $arr['item_description'];?></div>
         <table class="deliver">
           <tr>
             <td>국내·해외배송</td>
@@ -55,7 +64,7 @@
         <hr><br>
         <div class="totalPrice">
           <div class="deliver" style="font-weight: bold;">총 상품금액</div>
-          <div class="amount"><span id="total">26000</span> 원</div>
+          <div class="amount"><span id="total"><?php echo $arr['item_price'];?></span> 원</div>
         </div>
         <div class="buttons">
           <button type="submit" class="btn_basket">장바구니</button>
@@ -63,7 +72,7 @@
         </div>
       </div>
     </div>
-    <img style="margin:0 auto; display: block; max-width:100%;" src="../images/item-img/hongge.jpg">
+    <img style="margin:0 auto; display: block; max-width:100%;" src="../images/item-img/chungsong.png">
   </main>
   <footer>
     <div class="content_left">

@@ -6,40 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/icon.png">
-  <title>장바구니 - 난이몰</title>
+  <title>회원가입 - 난이몰</title>
   <style>
     main {
+      padding-top: 240px;
+      padding-bottom: 210px;
       text-align: center;
     }
 
-    hr {
-      margin: 20px ;
+    .wrapper > h2{
+      margin-bottom: 40px;
     }
 
-    .basket-explan {
-      margin-top: 70px;
+    .wrapper > input {
       font-size: 13px;
-      text-align: left;
+      width: 300px;
+      border: 1px solid rgb(209, 209, 209);
+      margin-bottom: 10px;
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
-    .basket-items {
-      margin-top: 100px;
-      margin-bottom: 100px;
+    .wrapper > :focus {
+      outline:none;
     }
 
-    .btnOrder {
-      padding: 15px 50px 15px 50px;
+    .btnSubmit {
+      width: 313.6px;
+      padding: 10px 50px 10px 50px;
       color: rgb(255, 255, 255);
       font-weight: bold;
       border: 0px;
-      background-color: #929292;
+      background-color: #E21010;
       border-radius: 5px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
-    .btnOrder:hover {
-      background-color: #5a5a5a;
+    .btnSubmit:hover {
       cursor: pointer;
+      background-color: #ff7878;
     }
   </style>
 </head>
@@ -60,23 +66,16 @@
   </header>
   
   <main>
-    <h2>장바구니</h2>
-    <hr>
-    <!-- 상품 넣는 곳-->
-    <div class="basket-items">장바구니가 비었습니다</div>
-    <hr>
-    <button type="submit" class="btnOrder">상품 주문하기</button>
-    <div class="basket-explan">
-      장바구니 이용안내<br>
-      해외배송 상품과 국내배송 상품은 함께 결제하실 수 없으니 장바구니 별로 따로 결제해 주시기 바랍니다.<br>
-      해외배송 가능 상품의 경우 국내배송 장바구니에 담았다가 해외배송 장바구니로 이동하여 결제하실 수 있습니다.<br>
-      파일첨부 옵션은 동일상품을 장바구니에 추가할 경우 마지막에 업로드 한 파일로 교체됩니다.<br><br>
-      무이자할부 이용안내<br>
-      상품별 무이자할부 혜택을 받으시려면 무이자할부 상품만 선택하여 [주문하기] 버튼을 눌러 주문/결제 하시면 됩니다.<br>
-      단, 전체 상품을 주문/결제하실 경우, 상품별 무이자할부 혜택을 받으실 수 없습니다.<br>
-      무이자할부 상품은 장바구니에서 별도 무이자할부 상품 영역에 표시되어, 무이자할부 상품 기준으로 배송비가 표시됩니다.<br>
-      실제 배송비는 함께 주문하는 상품에 따라 적용되오니 주문서 하단의 배송비 정보를 참고해주시기 바랍니다.<br>
-    </div>
+    <form method="post" action="login.php">
+      <div class="wrapper">
+        <h2>로그인</h2>
+        <input type="text" name="id" placeholder="아이디를 입력하세요"><br>
+        <input type="password" name="pw" placeholder="비밀번호를 입력하세요"><br>
+        <button type="submit" class="btnSubmit">확인</button>
+        <div onclick="location.href=''"></div>
+      </div>
+    </form>
+
   </main>
 
   <footer>

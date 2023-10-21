@@ -6,58 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/icon.png">
-  <title>로그인 - 난이몰</title>
-  <style>
-    main {
-      padding-top: 200px;
-      padding-bottom: 210px;
-      text-align: center;
-    }
-
-    .join_text {
-      margin-top: 20px;
-    }
-
-    .wrapper > h2{
-      margin-bottom: 40px;
-    }
-
-    .wrapper > input {
-      font-size: 13px;
-      width: 300px;
-      border: 1px solid rgb(209, 209, 209);
-      margin-bottom: 10px;
-      padding-left: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    .wrapper > :focus {
-      outline:none;
-    }
-
-    .btnSubmit {
-      width: 313.6px;
-      padding: 10px 50px 10px 50px;
-      color: rgb(255, 255, 255);
-      font-weight: bold;
-      border: 0px;
-      background-color: #E21010;
-      border-radius: 5px;
-      margin-top: 30px;
-    }
-
-    .btnSubmit:hover {
-      cursor: pointer;
-      background-color: #ff7878;
-    }
-  </style>
+  <title>신규상품 - 난이몰</title>
 </head>
 
 <body>
   <header>
     <nav class="menu">
-      <a href="index.php"><img class="icon" src="images/nanimall.png" alt="못난이몰"></a>
+    <a href="index.php"><img class="icon" src="images/nanimall.png" alt="못난이몰"></a>
       <ul>
         <li><a href="seasonal.php">제철상품</a></li>
         <li><a href="time-special.php">타임특가</a></li>
@@ -70,18 +25,23 @@
   </header>
   
   <main>
-    <form method="post" action="login.php">
-      <div class="wrapper">
-        <h2>로그인</h2>
-        <input type="text" name="id" placeholder="아이디를 입력하세요"><br>
-        <input type="password" name="pw" placeholder="비밀번호를 입력하세요"><br>
-        <button type="submit" class="btnSubmit">확인</button>
-        <div class="join_text"><a href="join.html">이곳을 눌러 회원가입하기</a></div>
-      </div>
-    </form>
-
+    <h2>신규상품</h2>
+    <div class="items">
+      <?php include('db_connect.php');
+  
+      $sql = "select * from nanimall";
+      $data = mysqli_query($conn, $sql);
+      $cnt = mysqli_num_rows($data);///
+  
+      for($i = 0; $i < 5; $i++){
+        $arr = mysqli_fetch_array($data);
+        echo "<div class='item'><a href='items/".$arr['item_src']."'><img src='".$arr['item_img']."'>";
+        echo "<div class='description'><span>".$arr['item_name']."</span></a><br><div class='summary'>".$arr['item_description']."</div><span class='price'>".$arr['item_price']."</span></div></div>";
+      }
+      ?>
+      
+    </div>
   </main>
-
   <footer>
     <div class="content_left">
       <a href="#"><img class="icon_footer" src="images/nanimall.png" alt="못난이몰"></a>
