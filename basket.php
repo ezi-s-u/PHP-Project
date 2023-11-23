@@ -43,6 +43,21 @@
     }
   </style>
 </head>
+<?php
+
+include('db_connect.php');
+
+if(!isset($_SESSION['user_id'])) {
+  echo "<script>location.href='login.html';</script>";
+} else {
+  $user_id = $_SESSION['user_id'];
+  $user_pw = $_SESSION['user_pw'];
+}
+
+$sql = "SELECT";
+
+
+?>
 
 <body>
   <header>

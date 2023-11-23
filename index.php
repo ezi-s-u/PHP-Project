@@ -18,8 +18,8 @@
         <li><a href="new-items.php">신규상품</a></li>
         <li><a href="all-items.php">전체상품</a></li>
       </ul>
-      <a href="basket.html"><img src="images/login.png" class="login"></img></a>
-      <a href="login.html"><img src="images/cart.png" class="cart"></img></a>
+      <a href="login.html"><img src="images/login.png" class="login"></img></a>
+      <a href="basket.html"><img src="images/cart.png" class="cart"></img></a>
     </nav>
   </header>
   

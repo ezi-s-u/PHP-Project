@@ -28,11 +28,11 @@ nav.menu {
   justify-content: center;
 }
 
-img.icon {
-  margin-left: 10px;
-  height: 70px;
-  margin-right: 300px; /* Add some spacing between the icon and menu items */
-}
+  img.icon {
+    margin-left: 10px;
+    height: 70px;
+    margin-right: 300px; /* Add some spacing between the icon and menu items */
+  }
 
 nav.menu ul {
   list-style: none;
